@@ -1,0 +1,38 @@
+# .github/workflows/deploy.yml
+name: Secure Deployment
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Replace Secrets
+        env:
+          BLOGGER_KEY: ${{ secrets.BLOGGER_API_KEY }}
+          KNOWLEDGE_SECRET: ${{ secrets.KNOWLEDGE_BASE }}
+        run: |
+          # Escape special characters
+          ESCAPED_BLOGGER=$(printf '%s\n' "$BLOGGER_KEY" | sed -e 's/[\/&]/\\&/g')
+          ESCAPED_KNOWLEDGE=$(printf '%s\n' "$KNOWLEDGE_SECRET" | sed -e 's/[\/&]/\\&/g')
+
+          # Replace in blogger-api.js
+          sed -i "s/GITHUB_PLACEHOLDER1/${ESCAPED_BLOGGER}/g" blogger-api.js
+          sed -i "s/GITHUB_PLACEHOLDER2/${ESCAPED_KNOWLEDGE}/g" blogger-api.js
+          
+          # Replace in other files
+          sed -i "s/GITHUB_PLACEHOLDER3/${ESCAPED_KNOWLEDGE}/g" other-file.js
+
+      - name: Verify Replacement
+        run: |
+          if grep -qr 'GITHUB_PLACEHOLDER' .; then
+            echo "Error: Placeholders remaining in files!"
+            exit 1
+          fi
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
