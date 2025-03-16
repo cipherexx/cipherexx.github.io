@@ -1,38 +1,34 @@
-name: Secure Blogger Deployment
-on: [push]
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [main]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
 
-      - name: Verify File Exists
-        run: |
-          if [ ! -f assets/js/blogger-api.js ]; then
-            echo "❌ blogger-api.js missing in assets/js"
-            exit 1
-          fi
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
       - name: Replace API Key
         working-directory: assets/js
         env:
           BLOGGER_KEY: ${{ secrets.BLOGGER_API_KEY }}
         run: |
-          # Escape special characters using pipe delimiter
+          # Escape special characters
           ESCAPED_KEY=$(printf '%s' "$BLOGGER_KEY" | sed -e 's/[\/&|]/\\&/g')
-          
-          # Replace only GITHUB_PLACEHOLDER1
           sed -i "s|GITHUB_PLACEHOLDER1|${ESCAPED_KEY}|g" blogger-api.js
-
-          # Verify replacement
-          if grep -q 'GITHUB_PLACEHOLDER1' blogger-api.js; then
-            echo "❌ Replacement failed!"
-            exit 1
-          fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
+          publish_branch: gh-pages
+          force_orphan: true
+          full_commit_message: "Deploy: ${{ github.sha }}"
