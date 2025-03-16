@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Mihir Birani</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/themes/prism-tomorrow.min.css">
+</head>
+<body data-theme="light">
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="/" class="logo-link">
+                        <span class="logo-text">Mihir Birani</span>
+                    </a>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#hero" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link contact-btn">Contact</a></li>
+                </ul>
+                
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                        </div>
+                    </label>
+                </div>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <div class="hero-flex">
+                    <div class="hero-content">
+                        <h1 class="reveal-text">Hi I'm Mihir. Sometimes I <span class="highlight">write code.</span></h1>
+                        <p class="subtitle reveal-text-delay">I'm a student at the <b>Indian Institute of Technology, Guwahati</b> pursuing a BTech in Mathematics And Computing.</p>
+                        <div class="hero-cta">
+                            <a href="#projects" class="btn btn-primary">View Projects</a>
+                            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="terminal-screen">
+                            <div class="terminal">
+                                <div id="terminal-output"></div>
+                                <div class="terminal-input">
+                                    <input type="text" id="user-input" autofocus>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- <section>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div class="arrows">
+                <span class="arrow"></span>
+                <span class="arrow"></span>
+                <span class="arrow"></span>
+            </div>
+        </div>
+        </section> -->
+        
+
+        <section id="about" class="about-section parallax-container">
+            <div class="parallax-bg" data-speed="0.5"></div>
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I hail from Mumbai, Maharashtra.</p>
+                        <p>With a keen interest and a lot of work in Machine Learning, a fair bit of experience in Cybersecurity and a rather <i>sweet</i> website, I'm on a quest to master software like no other.</p>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>Discipline</h3>
+                                    <p>B.Tech in Mathematics and Computing
+                                        <br> Minor in Data Science and AI
+                                    </p>
+                                    <span class="timeline-date">2023- 2027</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>JEE Advanced</h3>
+                                    <p>AIR 1006 among 1.5 lakh people </p>
+                                    <span class="timeline-date">2023</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>KVPY Scholar</h3>
+                                    <p>AIR 286 among 50k people </p>
+                                    <span class="timeline-date">2022</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills-container">
+                        <!-- Languages Section -->
+                        <div class="skill-category">
+                          <h3>Languages</h3>
+                          <div class="skills-grid">
+                            <div class="skill-item">
+                              <div class="skill-icon circle">
+                                <i class="fab fa-python"></i>
+                              </div>
+                              <div class="skill-label">Python</div>
+                            </div>
+                            <div class="skill-item">
+                              <div class="skill-icon circle">
+                                <i class="fas fa-code"></i>
+                              </div>
+                              <div class="skill-label">C</div>
+                            </div>
+                            <div class="skill-item">
+                              <div class="skill-icon circle">
+                                <i class="fas fa-code"></i>
+                              </div>
+                              <div class="skill-label">C++</div>
+                            </div>
+                            <div class="skill-item">
+                              <div class="skill-icon circle">
+                                <i class="fas fa-database"></i>
+                              </div>
+                              <div class="skill-label">SQL</div>
+                            </div>
+                            <div class="skill-item">
+                              <div class="skill-icon circle">
+                                <i class="fab fa-java"></i>
+                              </div>
+                              <div class="skill-label">Java<span class="asterisk">*</span></div>
+                            </div>
+                            <div class="skill-item">
+                              <div class="skill-icon circle">
+                                <i class="fab fa-js"></i>
+                              </div>
+                              <div class="skill-label">JavaScript<span class="asterisk">*</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <!-- Frameworks & Tools Section -->
+                        <div class="skill-category">
+                          <h3>Frameworks &amp; Tools</h3>
+                          <div class="skills-grid">
+                            <div class="skill-item">
+                              <div class="skill-icon circle">
+                                <i class="fas fa-fire"></i>
+                              </div>
+                              <div class="skill-label">PyTorch</div>
+                            </div>
+                            <div class="skill-item">
+                              <div class="skill-icon circle">
+                                <i class="fab fa-python"></i>
+                              </div>
+                              <div class="skill-label">TensorFlow<span class="asterisk">*</span></div>
+                            </div>
+                            <div class="skill-item">
+                              <div class="skill-icon circle">
+                                <i class="fas fa-database"></i>
+                              </div>
+                              <div class="skill-label">MySQL</div>
+                            </div>
+                            <div class="skill-item">
+                              <div class="skill-icon circle">
+                                <i class="fas fa-shield-alt"></i>
+                              </div>
+                              <div class="skill-label">BurpSuite</div>
+                            </div>
+                            <div class="skill-item">
+                              <div class="skill-icon circle">
+                                <i class="fas fa-network-wired"></i>
+                              </div>
+                              <div class="skill-label">Wireshark</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <!-- <div class="projects-filter">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                    <button class="filter-btn" data-filter="cv">Computer Vision</button>
+                    <button class="filter-btn" data-filter="nlp">NLP</button>
+                </div> -->
+                <div class="projects-grid">
+                    <div class="project-card" data-category="ml">
+                        <div class="project-img">
+                            <img src="assets/img/project1.jpg" alt="adobe research">
+                        </div>
+                        <div class="project-content">
+                            <h3>Artifact Identification and Explanation</h3>
+                            <p>A hierarchial classifier for artifacts in synthetic images with explanation using VLMs</p>
+                            <div class="project-tech">
+                                <span>Multimodal</span>
+                                <span>VLM</span>
+                                <span>Computer Vision</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fab fa-github"></i><del>View Code</del></a>
+                                <a href="assets/misc/adobereport.pdf" class="project-link"><i class="fa-solid fa-file-pdf"></i> Report</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="nlp">
+                        <div class="project-img">
+                            <img src="assets/img/project2.jpg" alt="melodies">
+                        </div>
+                        <div class="project-content">
+                            <h3>Prompt-Conditioned Music Generation</h3>
+                            <p>Conditioned Variational Autoencoder to generate melodies</p>
+                            <div class="project-tech">
+                                <span>Multimodal</span>
+                                <span>PyTorch</span>
+                                <span>Contrastive Learning</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fab fa-github"></i><del>View Code</del></a>
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i><del>Live Demo</del></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="cv">
+                        <div class="project-img">
+                            <img src="assets/img/project3.png" alt="deepfake">
+                        </div>
+                        <div class="project-content">
+                            <h3>Frequency-Aware Deepfake Detection</h3>
+                            <p>Frequency Aware Mining of Face Forgery Clues to Identify Deepfakes from Video Frames</p>
+                            <div class="project-tech">
+                                <span>Xception</span>
+                                <span>Computer Vision</span>
+                                <span>Frequency</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/cipherexx/third-eye" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i><del>Live Demo</del></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cta-container">
+                    <a href="projects.html" class="btn btn-secondary">View All Projects</a>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <p>biranimihir@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>LinkedIn</h3>
+                                <p>linkedin.com/in/mihirbirani</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>GitHub</h3>
+                                <p>github.com/cipherexx</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form-container reveal-on-scroll">
+                        <div class="contact-form">
+                            <form action="https://formsubmit.co/biranimihir@gmail.com" method="POST">
+                                <div class="form-group">
+                                    <label for="name">Name *</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="linkedin">LinkedIn (optional)</label>
+                                    <input type="url" id="linkedin" name="linkedin">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subject">Subject *</label>
+                                    <input type="text" id="subject" name="subject" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message">Message *</label>
+                                    <textarea id="message" name="message" rows="5" required></textarea>
+                                </div>
+                                
+                                <!-- Honeypot field to prevent spam -->
+                                <input type="text" name="_honey" style="display:none">
+                                
+                                <!-- Disable captcha -->
+                                <input type="hidden" name="_captcha" value="false">
+                                
+                                <!-- Specify your thank you page URL -->
+                                <input type="hidden" name="_next" value="https://cipherexx.github.com/formthanks.html">
+                                
+                                <button type="submit" class="btn btn-primary submit-btn">
+                                    <span class="btn-text">Send Message</span>
+                                    <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Mihir Birani</h3>
+                    <p>Powered by VIBES</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="https://github.com/cipherexx" target="_blank">GitHub</a></li>
+                            <li><a href="https://linkedin.com/in/mihirbirani" target="_blank">LinkedIn</a></li>
+                            <!-- <li><a href="https://twitter.com/myusername" target="_blank">Twitter</a></li> -->
+                            <li><a href="mailto:biranimihir@gmail.com">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mihir Birani. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>var exports = {};</script>
+<script src="assets/js/gemini-api.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/prism.min.js"></script>
+    <!-- <script src="assets/js/main.js"></script> -->
+    <script src="assets/js/rag-index.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/dark-mode.js"></script>
+    <script src="assets/js/parallax.js"></script>
+
+    <!-- <script src="assets/js/main.js"></script> -->
+</body>
+</html>

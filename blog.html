@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Mihir Birani</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Blog-specific styles */
+        .blog-container {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        .blog-post {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px var(--shadow-color);
+            margin-bottom: 2rem;
+            overflow: hidden;
+            transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+        }
+        
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px var(--shadow-color);
+        }
+        
+        .blog-post-img {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .blog-post-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-medium);
+        }
+        
+        .blog-post:hover .blog-post-img img {
+            transform: scale(1.05);
+        }
+        
+        .blog-post-content {
+            padding: 1.5rem;
+        }
+        
+        .post-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-color-light);
+        }
+        
+        .post-date {
+            margin-right: 1rem;
+        }
+        
+        .post-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        
+        .blog-post h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .blog-post p {
+            margin-bottom: 1rem;
+        }
+        
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .read-more i {
+            margin-left: 0.5rem;
+            transition: transform var(--transition-fast);
+        }
+        
+        .read-more:hover i {
+            transform: translateX(3px);
+        }
+        
+        .loading-container {
+            text-align: center;
+            padding: 2rem 0;
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="/" class="logo-link">
+                        <span class="logo-text">Mihir Birani</span>
+                    </a>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link contact-btn active">Contact</a></li>
+                </ul>
+                
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                        </div>
+                    </label>
+                </div>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header parallax-container">
+            <div class="parallax-bg" data-speed="0.5"></div>
+            <div class="container">
+                <h1 class="reveal-text">Blog</h1>
+                <span class="subtitle reveal-text-delay">Mihir's Debug Log: My take on College & Life, coming soon to a website near you.</span>
+            </div>
+        </section>
+
+        <section class="blog-section">
+            <div class="container">
+                <div class="blog-container">
+                    <!-- blog posts to be loaded dynamically via the Blogger API -->
+                    <div id="blog-posts" class="blog-posts">
+                        <!-- the loading placeholder will be replaced by actual content -->
+                        <div class="loading">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div id="infinite-scroll-trigger" class="loading-container" style="display: none;">
+                        <div class="loading">
+                            <div></div><div></div><div></div><div></div>
+                        </div>
+                        <p>Loading more posts...</p>
+                        <!-- lets hope i actually get enough posts to test this code soon lol-->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Mihir Birani</h3>
+                    <p>Powered by VIBES</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html#about">About</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="https://github.com/cipherexx" target="_blank">GitHub</a></li>
+                            <li><a href="https://linkedin.com/in/mihirbirani" target="_blank">LinkedIn</a></li>
+                            <!-- <li><a href="https://twitter.com/yourusername" target="_blank">Twitter</a></li> -->
+                            <li><a href="mailto:biranimihir@gmail.com">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mihir Birani. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dark-mode.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/parallax.js"></script>
+    <script src="assets/js/blogger-api.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const blogContainer = document.getElementById('blog-posts');
+            const scrollTrigger = document.getElementById('infinite-scroll-trigger');
+            
+            window.addEventListener('scroll', function() {
+                if (scrollTrigger.getBoundingClientRect().top <= window.innerHeight) {
+                    const loadMoreBtn = document.querySelector('.load-more-btn');
+                    if (loadMoreBtn) {
+                        loadMoreBtn.click();
+                        scrollTrigger.style.display = 'block';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
