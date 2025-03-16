@@ -1,4 +1,3 @@
-# .github/workflows/deploy.yml
 name: Secure Deployment
 on: [push]
 
@@ -8,26 +7,30 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Replace Secrets
+      - name: Navigate to JS directory
+        working-directory: ./assets/js
         env:
           BLOGGER_KEY: ${{ secrets.BLOGGER_API_KEY }}
           KNOWLEDGE_SECRET: ${{ secrets.KNOWLEDGE_BASE }}
         run: |
-          # Escape special characters
+          # Verify file existence
+          if [ ! -f blogger-api.js ]; then
+            echo "blogger-api.js not found in $(pwd)"
+            exit 1
+          fi
+
+          # Escape and replace
           ESCAPED_BLOGGER=$(printf '%s\n' "$BLOGGER_KEY" | sed -e 's/[\/&]/\\&/g')
           ESCAPED_KNOWLEDGE=$(printf '%s\n' "$KNOWLEDGE_SECRET" | sed -e 's/[\/&]/\\&/g')
 
-          # Replace in blogger-api.js
           sed -i "s/GITHUB_PLACEHOLDER1/${ESCAPED_BLOGGER}/g" blogger-api.js
-          sed -i "s/GITHUB_PLACEHOLDER2/${ESCAPED_KNOWLEDGE}/g" blogger-api.js
-          
-          # Replace in other files
-          sed -i "s/GITHUB_PLACEHOLDER3/${ESCAPED_KNOWLEDGE}/g" other-file.js
+          sed -i "s/GITHUB_PLACEHOLDER2/${ESCAPED_KNOWLEDGE}/g" rag-index.js
 
       - name: Verify Replacement
+        working-directory: ./assets/js
         run: |
           if grep -qr 'GITHUB_PLACEHOLDER' .; then
-            echo "Error: Placeholders remaining in files!"
+            echo "Error: Placeholders remaining!"
             exit 1
           fi
 
