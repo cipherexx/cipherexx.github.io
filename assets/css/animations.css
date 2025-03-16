@@ -1,0 +1,240 @@
+/*
+ * animations.css - Animation and transition effects
+ */
+
+/* Reveal Text Animation */
+.reveal-text, 
+.reveal-text-delay {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: reveal 0.8s cubic-bezier(0.5, 0, 0, 1) forwards;
+}
+
+.reveal-text-delay {
+  animation-delay: 0.2s;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Parallax Effect */
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background-image: url('assets/img/particles-bg.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+/* Typing Effect */
+.typing-effect::after {
+  content: '|';
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Fade In Animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Scale Animation */
+.scale-in {
+  transform: scale(0.8);
+  opacity: 0;
+  animation: scaleIn 0.6s cubic-bezier(0.5, 1.6, 0.4, 1.2) forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Staggered Animation */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stagger-item:nth-child(1) { animation: staggerFade 0.5s 0.1s forwards; }
+.stagger-item:nth-child(2) { animation: staggerFade 0.5s 0.2s forwards; }
+.stagger-item:nth-child(3) { animation: staggerFade 0.5s 0.3s forwards; }
+.stagger-item:nth-child(4) { animation: staggerFade 0.5s 0.4s forwards; }
+.stagger-item:nth-child(5) { animation: staggerFade 0.5s 0.5s forwards; }
+
+@keyframes staggerFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Float Animation */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Slide In From Side */
+.slide-in-right {
+  transform: translateX(100px);
+  opacity: 0;
+  animation: slideInRight 0.8s forwards;
+}
+
+.slide-in-left {
+  transform: translateX(-100px);
+  opacity: 0;
+  animation: slideInLeft 0.8s forwards;
+}
+
+@keyframes slideInRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Background Gradient Shift */
+.gradient-shift {
+  background: linear-gradient(45deg, #0066cc, #4f46e5, #7c3aed);
+  background-size: 300% 300%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Tilt Effect */
+.tilt-effect {
+  transition: transform 0.2s ease;
+  will-change: transform;
+}
+
+/* Custom cursor animations */
+.cursor-grow {
+  transform: scale(2.5);
+}
+
+.cursor-follower-grow {
+  transform: scale(1.5);
+}
+
+/* Loading Animation */
+.loading {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.loading div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.loading div:nth-child(1) {
+  left: 8px;
+  animation: loading1 0.6s infinite;
+}
+
+.loading div:nth-child(2) {
+  left: 8px;
+  animation: loading2 0.6s infinite;
+}
+
+.loading div:nth-child(3) {
+  left: 32px;
+  animation: loading2 0.6s infinite;
+}
+
+.loading div:nth-child(4) {
+  left: 56px;
+  animation: loading3 0.6s infinite;
+}
+
+@keyframes loading1 {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+@keyframes loading2 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(24px, 0); }
+}
+
+@keyframes loading3 {
+  0% { transform: scale(1); }
+  100% { transform: scale(0); }
+}

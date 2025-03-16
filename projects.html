@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Mihir Birani</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body data-theme="light">
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="/" class="logo-link">
+                        <span class="logo-text">Mihir Birani</span>
+                    </a>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link contact-btn active">Contact</a></li>
+                </ul>
+                
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                        </div>
+                    </label>
+                </div>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header parallax-container">
+            <div class="parallax-bg" data-speed="0.5"></div>
+            <div class="container">
+                <h1 class="reveal-text">My Projects</h1>
+                <p class="subtitle reveal-text-delay">Exploring the frontiers of machine learning and computer science</p>
+            </div>
+        </section>
+
+        <section class="projects-section">
+            <div class="container">
+                <!-- <div class="projects-filter reveal-on-scroll">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                    <button class="filter-btn" data-filter="cv">Computer Vision</button>
+                    <button class="filter-btn" data-filter="nlp">NLP</button>
+                    <button class="filter-btn" data-filter="research">Research</button>
+                </div> -->
+                
+                <div class="projects-grid">
+                    <div class="project-card" data-category="ml">
+                        <div class="project-img">
+                            <img src="assets/img/project1.jpg" alt="adobe research">
+                        </div>
+                        <div class="project-content">
+                            <h3>Artifact Identification and Explanation</h3>
+                            <p>A hierarchial classifier for artifacts in synthetic images with explanation using VLMs</p>
+                            <div class="project-tech">
+                                <span>Multimodal</span>
+                                <span>VLM</span>
+                                <span>Computer Vision</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fab fa-github"></i><del>View Code</del></a>
+                                <a href="assets/misc/adobereport.pdf" class="project-link"><i class="fa-solid fa-file-pdf"></i> Report</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="nlp">
+                        <div class="project-img">
+                            <img src="assets/img/project2.jpg" alt="melodies">
+                        </div>
+                        <div class="project-content">
+                            <h3>Prompt-Conditioned Music Generation</h3>
+                            <p>Conditioned Variational Autoencoder to generate melodies</p>
+                            <div class="project-tech">
+                                <span>Multimodal</span>
+                                <span>PyTorch</span>
+                                <span>Contrastive Learning</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fab fa-github"></i><del>View Code</del></a>
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i><del>Live Demo</del></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="cv">
+                        <div class="project-img">
+                            <img src="assets/img/project3.png" alt="deepfake">
+                        </div>
+                        <div class="project-content">
+                            <h3>Frequency-Aware Deepfake Detection</h3>
+                            <p>Frequency Aware Mining of Face Forgery Clues to Identify Deepfakes from Video Frames</p>
+                            <div class="project-tech">
+                                <span>Xception</span>
+                                <span>Computer Vision</span>
+                                <span>Frequency</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/cipherexx/third-eye" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i><del>Live Demo</del></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Mihir Birani</h3>
+                    <p>Powered by VIBES</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="https://github.com/cipherexx" target="_blank">GitHub</a></li>
+                            <li><a href="https://linkedin.com/in/mihirbirani" target="_blank">LinkedIn</a></li>
+                            <!-- <li><a href="https://twitter.com/myusername" target="_blank">Twitter</a></li> -->
+                            <li><a href="mailto:biranimihir@gmail.com">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mihir Birani. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>var exports = {};</script>
+<script src="assets/js/gemini-api.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/prism.min.js"></script>
+    <!-- <script src="assets/js/main.js"></script> -->
+    <script src="assets/js/rag-index.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/dark-mode.js"></script>
+    <script src="assets/js/parallax.js"></script>
+
+    <!-- <script src="assets/js/main.js"></script> -->
+</body>
+</html>
+
